@@ -10,14 +10,31 @@
 
 </head>
 <body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Wizzair</a>
+        </div>
+    </div>
+</nav>
 
+<br>
+<br>
+<br>
 <div class="container">
 
 
         <thead>
         <tr>
             <th>Order number   <td><span th:text="${order.getId()}"> </span></td> from  <td><span th:text="${flight.getDeparture()}"> </span></td> to <td><span th:text="${flight.getDestination()}"> </span></td> in value of <td><span th:text="${flight.getPrice()}"> </span></td> has been placed!</th>
-
+            <td ><a th:href="@{'/order/return/' + ${flight.getId()}}">Buy ticket back!</a></td>
         </tr>
         </thead>
 

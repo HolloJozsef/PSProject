@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./styles.css" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css"
           th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" />
 
 </head>
 <body>
+
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -28,22 +27,36 @@
 <br>
 <br>
 <br>
+<br>
 <div class="container">
 
 
+
+    <table class="blue table">
         <thead>
         <tr>
-            <th>Order number   <td><span th:text="${order.getId()}"> </span></td> from  <td><span th:text="${flight.getDeparture()}"> </span></td> to <td><span th:text="${flight.getDestination()}"> </span></td> in value of <td><span th:text="${flight.getPrice()}"> </span></td> has been placed!</th>
-            <td ><a th:href="@{'/order/return/' + ${flight.getId()}}">Buy ticket back!</a></td>
+
+            <th>Departure</th>
+            <th>Destination</th>
+            <th>Period</th>
+            <th>Price</th>
+
         </tr>
         </thead>
+        <tbody>
+        <tr th:each="flight : ${returnFlights}">
+            <td ><span th:text="${flight.getDeparture()}"> Departure </span></td>
+            <td ><span th:text="${flight.getDestination()}"> Destination </span></td>
+            <td ><span th:text="${flight.getPeriod()}"> Period </span></td>
+            <td ><span th:text="${flight.getPrice()}"> Price </span></td>
 
+            <td ><a th:href="@{'/order/' + ${flight.getId()}}">Buy!</a></td>
+        </tr>
+
+        </tbody>
+    </table>
 
 </div>
 
-<script type="text/javascript"
-        th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"></script>
-<script type="text/javascript"
-        th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
 </body>
 </html>

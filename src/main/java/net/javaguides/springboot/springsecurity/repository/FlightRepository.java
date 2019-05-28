@@ -10,4 +10,7 @@ import java.util.Optional;
 public interface FlightRepository  extends JpaRepository<Flight, Long> {
     List<Flight> findAllByDepartureAndDestinationAndPeriod(String departure, String destination, String period);
     Flight findById(long id);
+    Flight findByDeparture(String departure);
+    List<Flight> findByDestination(String destination);
+    List<Flight> findByDepartureAndDestination(String departure,String destination);
 }

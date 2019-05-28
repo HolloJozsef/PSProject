@@ -79,5 +79,13 @@ public class MainController {
         model.addAttribute("order",order);
         return "order_details";
     }
-
+    @RequestMapping(path="/order/return/{flightId}",produces = "text/html")
+    public String orderDetailsReturn(@PathVariable("flightId") long flightID,Model model) {
+        Flight flight=flightRepository.findById(flightID);
+      // List <Flight> departure=flightRepository.findByDestination(flight.getDeparture());
+      //  String destination=flightRepository.findByDeparture(flight.getDestination()).getDeparture();
+        List<Flight> returnFlights=flightRepository.findByDepartureAndDestination(flight.getDestination(),flight.getDeparture());
+        model.addAttribute("returnFlights",returnFlights);
+        return "return_flight";
+    }
 }
