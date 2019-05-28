@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.css" rel="stylesheet" id="bootstrap-css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h3>Select Flight Details</h3>
+    </div>
+    <div class="row">
+        <div class='col-sm-6'>
+            <form th:action="@{/flight-details}" method="get">
+                <div class="form-group">
+                    Origin:<br>
+                    <input type="text" name="origin" id="origin" class="form-control" autofocus="autofocus"><br>
+                    Destination:<br>
+                    <input type="text" name="destination" id="destination" class="form-control"
+                           autofocus="autofocus"><br>
+                    <br>
+
+                    Select Date:<br>
+                    <div class="form-group">
+                        <div class='input-group date' name="datepicker" id='datepicker'>
+                            <input type='text' name="period" id="period" class="form-control" />
+                            <span class="input-group-addon">
+		                        <span class="glyphicon glyphicon-calendar"></span>
+		                    </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="flight-detail-submit" id="flight-detail-submit"
+                                   class="form-control btn btn-primary" value="Search flight"/>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script >
+    $(function () {
+        $('#datepicker').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true,
+            showOtherMonths: true,
+            selectOtherMonths: true,
+            autoclose: true,
+            changeMonth: true,
+            changeYear: true,
+            orientation: "button"
+        });
+    });
+    type="text/javascript"
+    th:src="@{/webjars/jquery/3.2.1/jquery.min.js/}"
+    type="text/javascript"
+    th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"
+</script>
+
+</body>
+</html>
